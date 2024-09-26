@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form action="">
+            <h1>Đăng nhập</h1>
+
+            <p class="email">Email đăng nhập</p>
+
+            <div class="input-box">
+                <input id="email" type="text" placeholder="Vui lòng nhập email">
+            </div>
+
+            <p>Mật khẩu</p>
+
+            <div class="input-box">
+                <input type="password" id="password" class="password" placeholder="Vui lòng nhập mật khẩu">
+                <i class="fa-solid fa-eye-slash" id="show-password"></i>             
+                <div class="remember-forgot">
+                    <a href="#">Quên mật khẩu</a>
+                </div>
+            </div>                 
+    
+                <button type="submit" class="btn">Đăng nhập</button>
+            
+            <div class="register-link">
+                <p>Bạn chưa có tài khoản? <a href="#">Đăng kí</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <img class="jack" src="https://png.pngtree.com/thumb_back/fw800/background/20231226/pngtree-vibrant-nature-landscape-with-a-picturesque-house-flowing-river-and-blooming-image_13907676.png" alt="Ảnh không tồn tại">
+    </div>
+<script>
+     function checkLogin() {
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+
+                if (!email.includes('@')) {
+                    alert('Email không hợp lệ');
+                    return false;
+                }
+
+                if (password === '') {
+                    alert('Mật khẩu không được để trống');
+                    return false;
+                }
+
+                alert('Đăng nhập thành công');
+                return true;
+            }
+
+            var button = document.querySelector('button');
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                checkLogin();
+            });
+
+            var togglepassword = document.querySelector("#show-password");
+            var password = document.querySelector("#password");
+            var eyeButton = document.querySelector('.fa-eye-slash');
+
+            eyeButton.addEventListener('click', () => {
+                var input = document.querySelector('#password');
+                
+                if(input.type === 'password'){
+                    input.type = 'text';
+                    eyeButton.classList.remove('fa-eye-slash');
+                    eyeButton.classList.add('fa-eye');
+                }else {
+                    input.type = 'password';
+                    eyeButton.classList.remove('fa-eye');
+                    eyeButton.classList.add('fa-eye-slash');
+                }
+            })
+</script>
+</body>
+</html>
